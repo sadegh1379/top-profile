@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   HiHome,
   HiUser,
@@ -26,6 +27,8 @@ const links = [
 ];
 
 const Nav = () => {
+  const router = useRouter();
+  const pathname = router.pathname;
   return (
     <nav
       className="flex flex-col items-center xl:justify-center gap-y-10
@@ -38,8 +41,31 @@ const Nav = () => {
     text-3xl xl:text-xl xl:rounded-full"
       >
         {links.map((link, index) => (
-          <Link key={index} href={link.path}>
-            {link.icon}
+          <Link
+            key={index}
+            href={link.path}
+            className={`${
+              pathname === link.path && "text-accent"
+            } transition-all duration-300 relative flex items-center 
+        group hover:text-accent`}
+          >
+            {/* tooltip */}
+            <div
+              className="absolute pr-8 right-8
+             hidden xl:group-hover:flex"
+            >
+              <div className="bg-white relative flex text-primary items-center p-[6px] rounded-[3px]">
+                <div className="text-[12px] leading-none font-semibold capitalize">
+                  {link.name}
+                </div>
+                <div className="border-solid border-l-white border-l-8
+                border-y-transparent border-y-[6px] border-r-0 absolute -right-2">
+
+                </div>
+              </div>
+            </div>
+            {/* icon */}
+            <div>{link.icon}</div>
           </Link>
         ))}
       </div>
