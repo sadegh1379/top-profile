@@ -7,15 +7,15 @@ const ProjectsBtn = () => {
     <div className="mx-auto xl:mx-0">
       <Link
         href={"/work"}
-        className="relative w-[185px] h-[185px]
+        className="relative w-[125px] h-[125px]
       flex justify-center items-center bg-circleStar bg-cover bg-no-repeat group"
       >
         <Image
           src={"/rounded-text.png"}
-          width={141}
-          height={148}
+          width={101}
+          height={108}
           alt=""
-          className="animate-spin-slow w-full h-full max-w-[141px] max-h-[148px]
+          className="animate-spin-slow w-full h-full max-w-[101px] max-h-[108px]
           "
         />
         <HiArrowRight
