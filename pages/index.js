@@ -2,6 +2,7 @@ import ProjectsBtn from "../components/ProjectsBtn";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import Avatar from "../components/Avatar";
+import ParticlesContainer from "../components/ParticlesContainer";
 
 const Home = () => {
   return (
@@ -23,8 +24,8 @@ const Home = () => {
             exit="hidden"
             className="h1"
           >
-            Front-end developer <br /> I am{" "}
-            <span className="text-accent">ُSadegh akbari</span>
+            Hello everyone!
+            <br /> I am <span className="text-accent">Sadegh Akbari.</span>
           </motion.h1>
           {/* subtitle */}
           <motion.p
@@ -59,15 +60,23 @@ const Home = () => {
         {/* bg image */}
         <div
           className="bg-none xl:bg-explosion xl:bg-cover bg-right xl:bg-no-repeat w-full
-        h-full absolute mix-blend-color-dodge"
+        h-full absolute mix-blend-color-dodge translate-z-0"
         ></div>
         {/* particals */}
-        <div>particals</div>
+        <ParticlesContainer />
+
         {/* avatar */}
-        <div className="w-full h-full max-w-[617px] max-h-[558px] absolute -bottom-32
-        lg:bottom-0 lg:right-[8%]">
+        <motion.div
+          className="w-full h-full max-w-[607px] max-h-[548px] absolute -bottom-32
+        lg:bottom-0 lg:right-[8%]"
+          variants={fadeIn("up", 0.9)}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
           <Avatar />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
